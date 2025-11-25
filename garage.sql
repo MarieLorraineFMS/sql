@@ -5,7 +5,7 @@ CREATE TABLE
         a_qty int,
         a_designation varchar(50),
         a_marque varchar(25),
-        PRIMARY KEY a_id
+        PRIMARY KEY (a_id)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE
