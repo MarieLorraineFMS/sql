@@ -258,3 +258,48 @@ GROUP BY
     or_id,
     or_main_doeuvre_qty,
     or_montant_mo;
+
+-- SELECT Liste a_designation avec quantité totale & nb de références GROUP BY a_designation
+SELECT
+    a_designation,
+    COALESCE(SUM(a_qty), 0) AS total_qty,
+    COUNT(*) AS nb_ref
+FROM
+    g_article
+GROUP BY
+    a_designation
+ORDER BY
+    a_designation;
+
+-- SELECT Liste a_designation avec quantité totale et nombre de références, GROUP BY a_designation & a_marque
+SELECT
+    a_designation,
+    a_marque,
+    COALESCE(SUM(a_qty), 0) AS total_qty,
+    COUNT(*) AS nb_ref
+FROM
+    g_article
+GROUP BY
+    a_designation,
+    a_marque
+ORDER BY
+    a_designation,
+    a_marque;
+
+-- Nombre total d'articles
+SELECT
+    COUNT(*) AS nb_total
+FROM
+    g_article;
+
+-- Nombre de ref par marque
+SELECT
+    a_marque,
+    COUNT(*) AS références
+FROM
+    g_article
+GROUP BY
+    a_marque
+ORDER BY
+    références DESC,
+    a_marque;
