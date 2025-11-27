@@ -363,3 +363,29 @@ FROM
 ORDER BY
     or_id,
     ora_id;
+
+-- Liste les articles utilisés pour tous les OR
+SELECT
+    a_ref,
+    a_designation,
+    a_marque,
+    SUM(ora_qty) AS total_qte_utilisee,
+    SUM(ora_montant_a) AS total_montant
+FROM
+    g_ordre_reparation_article
+    JOIN g_article ON a_id = ora_fk_ora_article_id
+GROUP BY
+    a_id,
+    a_ref,
+    a_designation,
+    a_marque
+ORDER BY
+    a_marque,
+    a_designation;
+
+-- UPDATE augmenter le stock de 100 si < 20
+UPDATE g_article
+SET
+    a_qty = a_qty + 100
+WHERE
+    a_qty < 20;
