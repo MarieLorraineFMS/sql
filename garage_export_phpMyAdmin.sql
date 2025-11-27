@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 26 nov. 2025 à 17:46
+-- Généré le : jeu. 27 nov. 2025 à 09:50
 -- Version du serveur : 8.4.7
 -- Version de PHP : 8.3.28
 
@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS `g_article` (
 --
 
 INSERT INTO `g_article` (`a_id`, `a_ref`, `a_qty`, `a_designation`, `a_marque`, `a_prix`) VALUES
-(1, '7DJH423', 10, 'filtre à air', 'VALEO', 23),
+(1, '7D7H423', 10, 'filtre à air', 'VALEO', 23),
 (2, '5SQGD5Z', 25, 'filtre à GO', 'MECAFILTER', 40),
-(3, '7DJT423', 33, 'filtre à pollen', 'BOSCH', 155),
+(3, '7DKT423', 33, 'filtre à pollen', 'BOSCH', 155),
 (5, 'JKD7HP2', 2, 'filtre à air', 'BOSCH', 17),
 (6, 'IPDT5HGS', 10, 'filtre à pollen', 'VALEO', 112),
 (7, '7DQW423', 7, 'filtre à air', 'MAN', 24),
@@ -111,7 +111,7 @@ INSERT INTO `g_article` (`a_id`, `a_ref`, `a_qty`, `a_designation`, `a_marque`, 
 (69, 'BAT002', 5, 'Batterie 70Ah', 'EXIDE', 149.9),
 (70, 'WIP001', 40, 'Balais essuie-glace AV', 'VALEO', 24.9),
 (71, 'WIP002', 25, 'Balais essuie-glace AR', 'VALEO', 14.9),
-(72, 'BULB001', 50, 'Ampoule H7 55W', 'PHILIPS', 9.9),
+(72, 'BULB001', 154, 'Ampoule H7 55W', 'PHILIPS', 9.9),
 (73, 'OIL001', 27, 'Bidon huile 5W30 5L', 'TOTAL', 49.9),
 (74, 'CLT001', 18, 'Bidon liquide de refroidissement 5L', 'VALEO', 24.5);
 

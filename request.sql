@@ -303,3 +303,63 @@ GROUP BY
 ORDER BY
     références DESC,
     a_marque;
+
+-- Nombre d'occurrences par marque (au moins 2)
+SELECT
+    a_marque,
+    COUNT(*) AS occurrences
+FROM
+    g_article
+GROUP BY
+    a_marque
+HAVING
+    occurrences > 1
+ORDER BY
+    occurrences DESC;
+
+-- Nombre de passages par client & par voiture
+SELECT
+    c_nom,
+    c_telephone,
+    vc_plaque,
+    vc_annee,
+    v_marque,
+    v_type,
+    v_energie,
+    COUNT(or_id) AS nb_passages -- nb d'OR pour 1 client/voiture
+FROM
+    g_ordre_reparation
+    JOIN g_vehicule_client ON vc_id = or_fk_or_vclient_id
+    JOIN g_client ON c_id = vc_fk_client_vehicule_id
+    JOIN g_vehicule ON v_id = vc_fk_catalogue_vehicule_id
+GROUP BY
+    c_id,
+    c_nom,
+    c_telephone,
+    vc_id,
+    vc_plaque,
+    vc_annee,
+    v_marque,
+    v_type,
+    v_energie
+ORDER BY
+    nb_passages DESC,
+    c_nom,
+    vc_plaque;
+
+-- Liste des articles fournis pour toutes les interventions
+SELECT
+    or_id,
+    ora_id,
+    a_ref,
+    a_designation,
+    a_marque,
+    ora_qty,
+    ora_montant_a
+FROM
+    g_ordre_reparation_article
+    JOIN g_article ON a_id = ora_fk_ora_article_id
+    JOIN g_ordre_reparation ON or_id = ora_fk_ora_or_id
+ORDER BY
+    or_id,
+    ora_id;
